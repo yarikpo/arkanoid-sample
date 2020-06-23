@@ -38,10 +38,12 @@ var score = 0;
 const sLives = 4;
 var lives = sLives;
 // result
-var results = [ { name: 'none', points: 0 }, { name: 'none', points: 0 }];
+var results = [ { name: ' ', points: 0 }, { name: ' ', points: 0 }, { name: ' ', points: 0 }];
 // previous results
 var lastBallXD = 0;
 var lastBallYD = 0;
+// is game overed
+var gameover = true;
 
 // creates bricks
 var bricks = [];
@@ -86,9 +88,10 @@ function addResult() {
         }
     }
     results.sort(compare);
-    document.getElementById('p1').innerHTML = results[0].name + ' got ' + results[0].points;
-    document.getElementById('p2').innerHTML = results[1].name + ' got ' + results[1].points
-    document.getElementById('p3').innerHTML = results[2].name + ' got ' + results[2].points
+    document.getElementById('p1').innerHTML = '1. ' + results[0].name + ' got ' + results[0].points;
+    document.getElementById('p2').innerHTML = '2. ' + results[1].name + ' got ' + results[1].points
+    document.getElementById('p3').innerHTML = '3. ' + results[2].name + ' got ' + results[2].points
+    document.getElementById('p4').innerHTML = '4. ' + results[3].name + ' got ' + results[3].points
     // document.getElementById('p2').innerHTML = results[1];
 
 }
@@ -207,6 +210,7 @@ function draw() {
         ballYD = -2;
         paddleX = canvas.width / 2 - paddleWidth / 2;
         sleep();
+        gameover = true;
         
     }
     // paddle movements
@@ -215,6 +219,10 @@ function draw() {
     }
     if (leftPressed && paddleX > 0) {
         paddleX-= paddleD;
+    }
+    // connection between ball and paddle
+    if (gameover == true) {
+        ballX = paddleX + paddleWidth / 2;
     }
 
     // ball movements
@@ -235,6 +243,7 @@ function keyDownHandler(e) {
         leftPressed = true;
     }
     if (e.keyCode == 32) {
+        gameover = false;
         sleep();
     }
 }
