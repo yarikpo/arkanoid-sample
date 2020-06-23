@@ -1,0 +1,31 @@
+{
+  "name": "arkanoid-sample",
+  "version": "1.0.0",
+  "description": "arkanoid game created with clear canvas",
+  "main": "app.js",
+  "scripts": {
+    "prog": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarikpo/arkanoid-sample.git"
+  },
+  "keywords": [
+    "canvas",
+    "javascript",
+    "express"
+  ],
+  "author": "Yaroslav Popovych <yaroslavpopovich04@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yarikpo/arkanoid-sample/issues"
+  },
+  "homepage": "https://github.com/yarikpo/arkanoid-sample#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
