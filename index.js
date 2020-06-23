@@ -2,8 +2,8 @@ const canvas = document.getElementById('game');
 var ctx = canvas.getContext('2d');
 
 // creates a ball in the middle of the screen
-var ballX = canvas.height - 40;
-var ballY = canvas.width / 2;
+var ballX = canvas.width / 2;
+var ballY = canvas.height - 20;
 // radius of the ball
 const ballRadius = 10;
 // speed of the ball
@@ -39,6 +39,9 @@ const sLives = 4;
 var lives = sLives;
 // result
 var results = [ { name: 'none', points: 0 }, { name: 'none', points: 0 }];
+// previous results
+var lastBallXD = 0;
+var lastBallYD = 0;
 
 // creates bricks
 var bricks = [];
@@ -59,6 +62,15 @@ function createBricks() {
     }
 }
 createBricks();
+
+// pause
+function sleep() {
+    console.log('paused/unpaused');
+
+    [ballXD, lastBallXD] = [lastBallXD, ballXD];
+    [ballYD, lastBallYD] = [lastBallYD, ballYD];
+}
+sleep();
 
 
 // adds result to results
@@ -189,12 +201,12 @@ function draw() {
             addResult();
             createBricks();
         }
-        ballY = canvas.height - 40;
+        ballY = canvas.height - 20;
         ballX = canvas.width / 2;
         ballXD = 2;
         ballYD = -2;
         paddleX = canvas.width / 2 - paddleWidth / 2;
-
+        sleep();
         
     }
     // paddle movements
@@ -221,6 +233,9 @@ function keyDownHandler(e) {
     }
     if (e.keyCode == 37) {
         leftPressed = true;
+    }
+    if (e.keyCode == 32) {
+        sleep();
     }
 }
 
