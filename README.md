@@ -3,8 +3,11 @@ arkanoid written with clear canvas
 
 
 type git clone https://github.com/yarikpo/arkanoid-sample.git
+
 type cd arkanoid-sample
+
 type npm install
+
 
 
 
