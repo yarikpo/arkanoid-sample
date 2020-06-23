@@ -35,7 +35,7 @@ const color = ['pink', '#44dd44', '#ffff44', '#dc143c'];
 // score
 var score = 0;
 // lives
-const sLives = 1;
+const sLives = 4;
 var lives = sLives;
 // result
 var results = [ { name: 'none', points: 0 }, { name: 'none', points: 0 }];
